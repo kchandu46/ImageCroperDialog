@@ -1,0 +1,18 @@
+<div mat-dialog-content>
+  <image-cropper
+  [imageChangedEvent]="data.image"
+  [maintainAspectRatio]="false"
+  [containWithinAspectRatio]="false"
+  [aspectRatio]="0/0"
+  [alignImage]="'center'"
+  format="png"
+  (imageCropped)="imageCropped($event)"
+  (imageLoaded)="imageLoaded()"
+  (cropperReady)="cropperReady()"
+  (loadImageFailed)="loadImageFailed()"
+></image-cropper>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cacel</button>
+  <button mat-button  [mat-dialog-close]="croppedImage" cdkFocusInitial>Done</button>
+</div>
